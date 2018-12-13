@@ -1,0 +1,41 @@
+<div class="container">
+<div class="row top">
+  <div class="col-sm-3 timer">
+      <span class="timer">{{ timer }}</span>
+      <hr>
+  </div>
+  <div class="col-sm-3 margin-top">
+      <form>
+        <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions" id="easy radio-one" class="form-radio" (ngModel)="difficulty" value="easy" (ngChange)="changeDiff('easy')" checked="true"> Easy
+          </label>
+          <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions" id="medium radio-one" class="form-radio" (ngModel)="difficulty" value="medium" (ngChange)="changeDiff('medium')"> Medium
+          </label>
+          <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions" id="hard radio-one" class="form-radio" (ngModel)="difficulty" value="hard" (ngChange)="changeDiff('hard')"> Hard
+       </label>
+      </form>
+  </div>
+  <div class="col-sm-3 margin-top-2">
+      <button type="button" class="btn btn-primary btn-lg" (click)="trigger()">{{ mode }}</button>
+  </div>
+</div>
+<div class="ex row align-items-center">
+  <div *ngIf="exercise != 'Click Start to Begin'" class="img-bg col">
+    <div [ngClass]="{'blink_me': blink}" class="mx-auto text-center row ex-image">
+      <img [src]="exImage"/></div>
+  </div>
+  <div [ngClass]="{'blink_me': blink}" class="col">
+      <h2>{{ exercise }}</h2>
+  </div>
+</div>
+</div>
+<div class="row log">
+    <div class="panel panel-default">
+        <div class="panel-heading">Previous Sessions</div>
+        <table class="table">
+          ...
+        </table>
+      </div>
+</div>

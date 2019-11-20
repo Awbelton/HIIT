@@ -4,6 +4,7 @@ var express = require('express'),
     cors = require('cors'),
     mongoose = require('mongoose');
     config = require('./db/config');
+    routes = require('./routes/sessionRoutes');
 
     mongoose.Promise = global.Promise;
     mongoose.connect(config.config).then(
@@ -14,6 +15,7 @@ var express = require('express'),
     const app = express();
     app.use(bodyParser.json());
     app.use(cors());
+    app.use('/', routes);
     const port = process.env.PORT || 4000;
 
     const server = app.listen(function() {
